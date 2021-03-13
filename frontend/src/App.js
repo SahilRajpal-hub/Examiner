@@ -1,7 +1,11 @@
+import Header from './Componenets/Header'
+import Sidebar from './Componenets/Sidebar'
+
 const App = () => {
   return (
     <div className='App'>
-      <h1>Examiner sahil</h1>
+      <Header />
+      <Sidebar />
     </div>
   )
 }
