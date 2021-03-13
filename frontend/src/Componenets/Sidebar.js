@@ -1,6 +1,19 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 const Sidebar = () => {
+  const [active, setActive] = useState('')
+
+  function onChangeState(activate) {
+    console.log(activate)
+    if (active === '') {
+      setActive(activate)
+    } else {
+      setActive('')
+    }
+  }
+
   return (
     <div className='sidebar' id='sidebar'>
       <div className='sidebar-inner slimscroll'>
@@ -10,81 +23,101 @@ const Sidebar = () => {
               <span>Main Menu</span>
             </li>
             <li className='active'>
-              <a href='index.html'>
+              <Link to='index.html'>
                 <i className='fas fa-th-large'></i> <span>Dashboard</span>
-              </a>
+              </Link>
             </li>
             <li className='submenu'>
-              <a href='#'>
+              <Link
+                to='#'
+                className={active === 'Students' ? 'subdrop' : ''}
+                onClick={() => onChangeState('Students')}
+              >
                 <i className='fas fa-user-graduate'></i> <span> Students</span>{' '}
                 <span className='menu-arrow'></span>
-              </a>
-              <ul>
+              </Link>
+              <ul
+                style={
+                  active === 'Students'
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li>
-                  <a href='students.html'>Student List</a>
+                  <Link to='students.html'>Student List</Link>
                 </li>
                 <li>
-                  <a href='student-details.html'>Student View</a>
+                  <Link to='student-details.html'>Student View</Link>
                 </li>
                 <li>
-                  <a href='add-student.html'>Student Add</a>
+                  <Link to='add-student.html'>Student Add</Link>
                 </li>
                 <li>
-                  <a href='edit-student.html'>Student Edit</a>
-                </li>
-              </ul>
-            </li>
-            <li className='submenu'>
-              <a href='#'>
-                <i className='fas fa-chalkboard-teacher'></i>{' '}
-                <span> Teachers</span> <span className='menu-arrow'></span>
-              </a>
-              <ul>
-                <li>
-                  <a href='teachers.html'>Teacher List</a>
-                </li>
-                <li>
-                  <a href='teacher-details.html'>Teacher View</a>
-                </li>
-                <li>
-                  <a href='add-teacher.html'>Teacher Add</a>
-                </li>
-                <li>
-                  <a href='edit-teacher.html'>Teacher Edit</a>
+                  <Link to='edit-student.html'>Student Edit</Link>
                 </li>
               </ul>
             </li>
             <li className='submenu'>
-              <a href='#'>
+              <Link
+                to='#'
+                className={active === 'Teachers' ? 'subdrop' : ''}
+                onClick={() => onChangeState('Teachers')}
+              >
+                <i className='fas fa-user-graduate'></i> <span> Teachers</span>{' '}
+                <span className='menu-arrow'></span>
+              </Link>
+              <ul
+                style={
+                  active === 'Teachers'
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
+                <li>
+                  <Link to='teachers.html'>Teacher List</Link>
+                </li>
+                <li>
+                  <Link to='teacher-details.html'>Teacher View</Link>
+                </li>
+                <li>
+                  <Link to='add-teacher.html'>Teacher Add</Link>
+                </li>
+                <li>
+                  <Link to='edit-teacher.html'>Teacher Edit</Link>
+                </li>
+              </ul>
+            </li>
+            <li className='submenu'>
+              <Link to='#'>
                 <i className='fas fa-building'></i> <span> Departments</span>{' '}
                 <span className='menu-arrow'></span>
-              </a>
+              </Link>
               <ul>
                 <li>
-                  <a href='departments.html'>Department List</a>
+                  <Link to='departments.html'>Department List</Link>
                 </li>
                 <li>
-                  <a href='add-department.html'>Department Add</a>
+                  <Link to='add-department.html'>Department Add</Link>
                 </li>
                 <li>
-                  <a href='edit-department.html'>Department Edit</a>
+                  <Link to='edit-department.html'>Department Edit</Link>
                 </li>
               </ul>
             </li>
             <li className='submenu'>
-              <a href='#'>
+              <Link to='#'>
                 <i className='fas fa-book-reader'></i> <span> Subjects</span>{' '}
                 <span className='menu-arrow'></span>
-              </a>
+              </Link>
               <ul>
                 <li>
-                  <a href='subjects.html'>Subject List</a>
+                  <Link to='subjects.html'>Subject List</Link>
                 </li>
                 <li>
-                  <a href='add-subject.html'>Subject Add</a>
+                  <Link to='add-subject.html'>Subject Add</Link>
                 </li>
                 <li>
-                  <a href='edit-subject.html'>Subject Edit</a>
+                  <Link to='edit-subject.html'>Subject Edit</Link>
                 </li>
               </ul>
             </li>
@@ -94,60 +127,60 @@ const Sidebar = () => {
             </li>
 
             <li className='submenu'>
-              <a href='#'>
+              <Link to='#'>
                 <i className='fas fa-file-invoice-dollar'></i>{' '}
                 <span> Accounts</span> <span className='menu-arrow'></span>
-              </a>
+              </Link>
               <ul>
                 <li>
-                  <a href='fees-collections.html'>Fees Collection</a>
+                  <Link to='fees-collections.html'>Fees Collection</Link>
                 </li>
                 <li>
-                  <a href='expenses.html'>Expenses</a>
+                  <Link to='expenses.html'>Expenses</Link>
                 </li>
                 <li>
-                  <a href='salary.html'>Salary</a>
+                  <Link to='salary.html'>Salary</Link>
                 </li>
                 <li>
-                  <a href='add-fees-collection.html'>Add Fees</a>
+                  <Link to='add-fees-collection.html'>Add Fees</Link>
                 </li>
                 <li>
-                  <a href='add-expenses.html'>Add Expenses</a>
+                  <Link to='add-expenses.html'>Add Expenses</Link>
                 </li>
                 <li>
-                  <a href='add-salary.html'>Add Salary</a>
+                  <Link to='add-salary.html'>Add Salary</Link>
                 </li>
               </ul>
             </li>
             <li>
-              <a href='holiday.html'>
+              <Link to='holiday.html'>
                 <i className='fas fa-holly-berry'></i> <span>Holiday</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='fees.html'>
+              <Link to='fees.html'>
                 <i className='fas fa-comment-dollar'></i> <span>Fees</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='exam.html'>
+              <Link to='exam.html'>
                 <i className='fas fa-clipboard-list'></i> <span>Exam list</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='event.html'>
+              <Link to='event.html'>
                 <i className='fas fa-calendar-day'></i> <span>Events</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='time-table.html'>
+              <Link to='time-table.html'>
                 <i className='fas fa-table'></i> <span>Time Table</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='library.html'>
+              <Link to='library.html'>
                 <i className='fas fa-book'></i> <span>Library</span>
-              </a>
+              </Link>
             </li>
 
             <li className='menu-title'>
@@ -155,30 +188,30 @@ const Sidebar = () => {
             </li>
 
             <li className='submenu'>
-              <a href='#'>
+              <Link to='#'>
                 <i className='fas fa-shield-alt'></i>{' '}
                 <span> Authentication </span>{' '}
                 <span className='menu-arrow'></span>
-              </a>
+              </Link>
               <ul>
                 <li>
-                  <a href='login.html'>Login</a>
+                  <Link to='login.html'>Login</Link>
                 </li>
                 <li>
-                  <a href='register.html'>Register</a>
+                  <Link to='register.html'>Register</Link>
                 </li>
                 <li>
-                  <a href='forgot-password.html'>Forgot Password</a>
+                  <Link to='forgot-password.html'>Forgot Password</Link>
                 </li>
                 <li>
-                  <a href='error-404.html'>Error Page</a>
+                  <Link to='error-404.html'>Error Page</Link>
                 </li>
               </ul>
             </li>
             <li>
-              <a href='blank-page.html'>
+              <Link to='blank-page.html'>
                 <i className='fas fa-file'></i> <span>Blank Page</span>
-              </a>
+              </Link>
             </li>
 
             <li className='menu-title'>
@@ -186,113 +219,113 @@ const Sidebar = () => {
             </li>
 
             <li>
-              <a href='sports.html'>
+              <Link to='sports.html'>
                 <i className='fas fa-baseball-ball'></i> <span>Sports</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='hostel.html'>
+              <Link to='hostel.html'>
                 <i className='fas fa-hotel'></i> <span>Hostel</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='transport.html'>
+              <Link to='transport.html'>
                 <i className='fas fa-bus'></i> <span>Transport</span>
-              </a>
+              </Link>
             </li>
             <li className='menu-title'>
               <span>UI Interface</span>
             </li>
             <li>
-              <a href='components.html'>
+              <Link to='components.html'>
                 <i className='fas fa-vector-square'></i> <span>Components</span>
-              </a>
+              </Link>
             </li>
             <li className='submenu'>
-              <a href='#'>
+              <Link to='#'>
                 <i className='fas fa-columns'></i> <span> Forms </span>{' '}
                 <span className='menu-arrow'></span>
-              </a>
+              </Link>
               <ul>
                 <li>
-                  <a href='form-basic-inputs.html'>Basic Inputs </a>
+                  <Link to='form-basic-inputs.html'>Basic Inputs </Link>
                 </li>
                 <li>
-                  <a href='form-input-groups.html'>Input Groups </a>
+                  <Link to='form-input-groups.html'>Input Groups </Link>
                 </li>
                 <li>
-                  <a href='form-horizontal.html'>Horizontal Form </a>
+                  <Link to='form-horizontal.html'>Horizontal Form </Link>
                 </li>
                 <li>
-                  <a href='form-vertical.html'> Vertical Form </a>
+                  <Link to='form-vertical.html'> Vertical Form </Link>
                 </li>
                 <li>
-                  <a href='form-mask.html'> Form Mask </a>
+                  <Link to='form-mask.html'> Form Mask </Link>
                 </li>
                 <li>
-                  <a href='form-validation.html'> Form Validation </a>
+                  <Link to='form-validation.html'> Form Validation </Link>
                 </li>
               </ul>
             </li>
             <li className='submenu'>
-              <a href='#'>
+              <Link to='#'>
                 <i className='fas fa-table'></i> <span> Tables </span>{' '}
                 <span className='menu-arrow'></span>
-              </a>
+              </Link>
               <ul>
                 <li>
-                  <a href='tables-basic.html'>Basic Tables </a>
+                  <Link to='tables-basic.html'>Basic Tables </Link>
                 </li>
                 <li>
-                  <a href='data-tables.html'>Data Table </a>
+                  <Link to='data-tables.html'>Data Table </Link>
                 </li>
               </ul>
             </li>
             <li className='submenu'>
-              <a href='javascript:void(0);'>
+              <Link to=''>
                 <i className='fas fa-code'></i> <span>Multi Level</span>{' '}
                 <span className='menu-arrow'></span>
-              </a>
+              </Link>
               <ul>
                 <li className='submenu'>
-                  <a href='javascript:void(0);'>
+                  <Link to=''>
                     {' '}
                     <span>Level 1</span> <span className='menu-arrow'></span>
-                  </a>
+                  </Link>
                   <ul>
                     <li>
-                      <a href='javascript:void(0);'>
+                      <Link to=''>
                         <span>Level 2</span>
-                      </a>
+                      </Link>
                     </li>
                     <li className='submenu'>
-                      <a href='javascript:void(0);'>
+                      <Link to=''>
                         {' '}
                         <span> Level 2</span>{' '}
                         <span className='menu-arrow'></span>
-                      </a>
+                      </Link>
                       <ul>
                         <li>
-                          <a href='javascript:void(0);'>Level 3</a>
+                          <Link to=''>Level 3</Link>
                         </li>
                         <li>
-                          <a href='javascript:void(0);'>Level 3</a>
+                          <Link to=''>Level 3</Link>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a href='javascript:void(0);'>
+                      <Link to=''>
                         {' '}
                         <span>Level 2</span>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href='javascript:void(0);'>
+                  <Link to=''>
                     {' '}
                     <span>Level 1</span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>

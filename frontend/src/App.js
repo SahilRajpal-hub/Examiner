@@ -1,12 +1,10 @@
-import Header from './Componenets/Header'
-import Sidebar from './Componenets/Sidebar'
+import HomeScreen from './Screens/HomeScreen'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 const App = () => {
   return (
     <Router>
-      <Header />
-      <Sidebar />
+      <Route path='/' component={HomeScreen} exact />
     </Router>
   )
 }

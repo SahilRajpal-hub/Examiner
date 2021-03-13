@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
@@ -6,23 +7,23 @@ const Header = () => {
     <div className='header'>
       {/* <!-- Logo --> */}
       <div className='header-left'>
-        <a href='index.html' className='logo'>
+        <Link to='index.html' className='logo'>
           <img src='assets/img/logo.png' alt='Logo' />
-        </a>
-        <a href='index.html' className='logo logo-small'>
+        </Link>
+        <Link to='index.html' className='logo logo-small'>
           <img
             src='assets/img/logo-small.png'
             alt='Logo'
             width='30'
             height='30'
           />
-        </a>
+        </Link>
       </div>
       {/* <!-- /Logo --> */}
 
-      <a href='javascript:void(0);' id='toggle_btn'>
+      <Link to='' id='toggle_btn'>
         <i className='fas fa-align-left'></i>
-      </a>
+      </Link>
 
       {/* <!-- Search Bar --> */}
       <div className='top-nav-search'>
@@ -40,40 +41,40 @@ const Header = () => {
       {/* <!-- /Search Bar --> */}
 
       {/* <!-- Mobile Menu Toggle --> */}
-      <a className='mobile_btn' id='mobile_btn'>
+      <Link to='' className='mobile_btn'>
         <i className='fas fa-bars'></i>
-      </a>
+      </Link>
       {/* <!-- /Mobile Menu Toggle --> */}
 
       {/* <!-- Header Right Menu --> */}
       <ul className='nav user-menu'>
         {/* <!-- Notifications --> */}
         <li className='nav-item dropdown noti-dropdown'>
-          <a
-            href='#'
+          <Link
+            to='#'
             className='dropdown-toggle nav-link'
             data-toggle='dropdown'
           >
             <i className='far fa-bell'></i>{' '}
             <span className='badge badge-pill'>3</span>
-          </a>
+          </Link>
           <div className='dropdown-menu notifications'>
             <div className='topnav-dropdown-header'>
               <span className='notification-title'>Notifications</span>
-              <a href='javascript:void(0)' className='clear-noti'>
+              <Link to='' className='clear-noti'>
                 {' '}
                 Clear All{' '}
-              </a>
+              </Link>
             </div>
             <div className='noti-content'>
               <ul className='notification-list'>
                 <li className='notification-message'>
-                  <a href='#'>
+                  <Link to='#'>
                     <div className='media'>
                       <span className='avatar avatar-sm'>
                         <img
                           className='avatar-img rounded-circle'
-                          alt='User Image'
+                          alt='User'
                           src='assets/img/profiles/avatar-02.jpg'
                         />
                       </span>
@@ -88,15 +89,15 @@ const Header = () => {
                         </p>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </li>
                 <li className='notification-message'>
-                  <a href='#'>
+                  <Link to='#'>
                     <div className='media'>
                       <span className='avatar avatar-sm'>
                         <img
                           className='avatar-img rounded-circle'
-                          alt='User Image'
+                          alt='User'
                           src='assets/img/profiles/avatar-11.jpg'
                         />
                       </span>
@@ -113,15 +114,15 @@ const Header = () => {
                         </p>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </li>
                 <li className='notification-message'>
-                  <a href='#'>
+                  <Link to='#'>
                     <div className='media'>
                       <span className='avatar avatar-sm'>
                         <img
                           className='avatar-img rounded-circle'
-                          alt='User Image'
+                          alt='User'
                           src='assets/img/profiles/avatar-17.jpg'
                         />
                       </span>
@@ -136,15 +137,15 @@ const Header = () => {
                         </p>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </li>
                 <li className='notification-message'>
-                  <a href='#'>
+                  <Link to='#'>
                     <div className='media'>
                       <span className='avatar avatar-sm'>
                         <img
                           className='avatar-img rounded-circle'
-                          alt='User Image'
+                          alt='User'
                           src='assets/img/profiles/avatar-13.jpg'
                         />
                       </span>
@@ -161,12 +162,12 @@ const Header = () => {
                         </p>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
             <div className='topnav-dropdown-footer'>
-              <a href='#'>View all Notifications</a>
+              <Link to='#'>View all Notifications</Link>
             </div>
           </div>
         </li>
@@ -174,8 +175,8 @@ const Header = () => {
 
         {/* <!-- User Menu --> */}
         <li className='nav-item dropdown has-arrow'>
-          <a
-            href='#'
+          <Link
+            to='#'
             className='dropdown-toggle nav-link'
             data-toggle='dropdown'
           >
@@ -187,13 +188,13 @@ const Header = () => {
                 alt='Ryan Taylor'
               />
             </span>
-          </a>
+          </Link>
           <div className='dropdown-menu'>
             <div className='user-header'>
               <div className='avatar avatar-sm'>
                 <img
                   src='assets/img/profiles/avatar-01.jpg'
-                  alt='User Image'
+                  alt='User'
                   className='avatar-img rounded-circle'
                 />
               </div>
@@ -202,15 +203,15 @@ const Header = () => {
                 <p className='text-muted mb-0'>Administrator</p>
               </div>
             </div>
-            <a className='dropdown-item' href='profile.html'>
+            <Link className='dropdown-item' to=''>
               My Profile
-            </a>
-            <a className='dropdown-item' href='inbox.html'>
+            </Link>
+            <Link className='dropdown-item' to=''>
               Inbox
-            </a>
-            <a className='dropdown-item' href='login.html'>
+            </Link>
+            <Link className='dropdown-item' to=''>
               Logout
-            </a>
+            </Link>
           </div>
         </li>
         {/* <!-- /User Menu --> */}
