@@ -1,18 +1,17 @@
 import express from 'express'
-import './db/mongoose.js'
 import dotenv from 'dotenv'
-import connectDB from './config/db.js'
-import userRoutes from './routes/studentRoutes.js'
+import connectDB from './config/db.js' 
+import studentRoutes from './routes/studentRoutes.js'
 
 // <----- App Configuration ------>
 dotenv.config()
-connectDB()
+connectDB() //here we initiate the databases
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // <----- Routes ------>
-app.use('/api/users', userRoutes)
+app.use('/api/users',studentRoutes)
 
 app.get('/', (req, res) => {
   res.send('API is running....')
