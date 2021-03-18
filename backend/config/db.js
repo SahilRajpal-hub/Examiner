@@ -2,9 +2,8 @@ import mongoose from 'mongoose'
 
 //function to connect database
 const connectDB = async () => {
-
   try {
-    const conn = await mongoose.connect('mongodb://127.0.0.1:27017/Examiner',{                 
+    const conn = await mongoose.connect(process.env.MONGO_URI, {
       useUnifiedTopology: true,
       useNewUrlParser: true,
       useCreateIndex: true,
@@ -14,7 +13,6 @@ const connectDB = async () => {
     console.log(error.message)
     process.exit(1)
   }
-
 }
 
 export default connectDB
