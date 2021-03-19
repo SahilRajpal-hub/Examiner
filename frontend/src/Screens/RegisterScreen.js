@@ -80,7 +80,6 @@ const RegisterScreen = () => {
                   <div className='form-group'>
                     <button
                       className='btn btn-primary btn-block'
-                      type='submit'
                       onChange={(e) => submitHandler(e)}
                     >
                       Register

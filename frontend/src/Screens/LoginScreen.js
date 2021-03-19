@@ -2,6 +2,8 @@ import { React, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { studentLogin } from '../Actions/studentsAction'
 import { useSelector, useDispatch } from 'react-redux'
+import Loader from '../Componenets/Loader'
+import { Spinner } from 'react-bootstrap'
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('')
@@ -9,8 +11,8 @@ const LoginScreen = () => {
 
   const dispatch = useDispatch()
 
-  //   const studentLogin = useSelector((state) => state.studentLogin)
-  //   const { loading, error, studentInfo } = studentLogin
+  const studentLoginInfo = useSelector((state) => state.studentLogin)
+  const { loading, error, studentInfo } = studentLoginInfo
 
   //   useEffect({}, [])
 
@@ -19,7 +21,19 @@ const LoginScreen = () => {
     dispatch(studentLogin(email, password))
   }
 
-  return (
+  return loading ? (
+    <Spinner
+      style={{
+        top: '50%',
+        margin: 'auto',
+        left: '50%',
+        'margin-left': '-50px',
+        marginLeft: '-50px',
+      }}
+      animation='grow'
+      variant='info'
+    />
+  ) : (
     <div className='main-wrapper login-body'>
       <div className='login-wrapper'>
         <div className='container'>
