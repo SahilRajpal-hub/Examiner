@@ -1,12 +1,14 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import connectDB from './config/db.js'
+import cors from 'cors'
 import studentRoutes from './routes/studentRoutes.js'
 
 // <----- App Configuration ------>
 dotenv.config()
 connectDB() //here we initiate the databases
 const app = express()
+app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
