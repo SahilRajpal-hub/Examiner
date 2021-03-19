@@ -12,7 +12,16 @@ const reducers = combineReducers({
   studentLogin: studentLoginReducer,
   studentRegister: studentRegisterReducer,
 })
-const initialState = {}
+
+const studentInfoFromStorage = localStorage.getItem('studentInfo')
+  ? JSON.parse(localStorage.getItem('studentInfo'))
+  : null
+
+const initialState = {
+  studentLogin: {
+    studentInfo: studentInfoFromStorage,
+  },
+}
 const middleware = [thunk]
 
 const store = createStore(

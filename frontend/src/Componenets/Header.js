@@ -1,16 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { studentLogout } from '../Actions/studentsAction'
 
 const Header = () => {
+  const dispatch = useDispatch()
+  const submitHandler = () => {
+    dispatch(studentLogout())
+  }
+
   return (
     // <!-- Header -->
     <div className='header'>
       {/* <!-- Logo --> */}
       <div className='header-left'>
-        <Link to='index.html' className='logo'>
+        <Link to='/home' className='logo'>
           <img src='assets/img/logo.png' alt='Logo' />
         </Link>
-        <Link to='index.html' className='logo logo-small'>
+        <Link className='logo logo-small'>
           <img
             src='assets/img/logo-small.png'
             alt='Logo'
@@ -21,7 +28,7 @@ const Header = () => {
       </div>
       {/* <!-- /Logo --> */}
 
-      <Link to='' id='toggle_btn'>
+      <Link id='toggle_btn'>
         <i className='fas fa-align-left'></i>
       </Link>
 
@@ -209,7 +216,7 @@ const Header = () => {
             <Link className='dropdown-item' to=''>
               Inbox
             </Link>
-            <Link className='dropdown-item' to=''>
+            <Link className='dropdown-item' onClick={(e) => submitHandler()}>
               Logout
             </Link>
           </div>

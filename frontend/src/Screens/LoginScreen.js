@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import Loader from '../Componenets/Loader'
 import { Spinner } from 'react-bootstrap'
 
-const LoginScreen = () => {
+const LoginScreen = ({ history }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -14,7 +14,11 @@ const LoginScreen = () => {
   const studentLoginInfo = useSelector((state) => state.studentLogin)
   const { loading, error, studentInfo } = studentLoginInfo
 
-  //   useEffect({}, [])
+  useEffect(() => {
+    if (studentInfo) {
+      history.push('/home')
+    }
+  }, [studentInfo, history])
 
   const submitHandler = (e) => {
     e.preventDefault()

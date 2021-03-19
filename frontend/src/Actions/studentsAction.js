@@ -6,6 +6,7 @@ import {
   STUDENT_LOGIN_FAIL,
   STUDENT_LOGIN_REQUEST,
   STUDENT_LOGIN_SUCCESS,
+  STUDENT_LOGOUT,
   STUDENT_REGISTER_FAIL,
   STUDENT_REGISTER_REQUEST,
   STUDENT_REGISTER_SUCCESS,
@@ -65,6 +66,14 @@ export const studentLogin = (email, password) => async (dispatch) => {
           : error.response,
     })
   }
+}
+
+// <-------- studentlogout action  ----------->
+export const studentLogout = () => async (dispatch) => {
+  dispatch({
+    type: STUDENT_LOGOUT,
+  })
+  localStorage.removeItem('studentInfo')
 }
 
 // <-------- student register action  ----------->
